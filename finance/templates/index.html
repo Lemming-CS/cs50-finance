@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Homepage
+{% endblock %}
+
+{% block main %}
+    <p><strong>Cash:</strong> ${{ "%.2f"|format(cash) }}</p>
+    <p><strong>Shares value:</strong> ${{ "%.2f"|format(shares_total) }}</p>
+    <p><strong>Total value:</strong> ${{ "%.2f"|format(shares_total + cash) }}</p>
+<div class="table-responsive">
+    <table class="table table-striped table-hover table-bordered table-sm">
+        <thead class="table-dark">
+            <tr>
+                 <th>Stock Name</th>
+                 <th>Shares Owned</th>
+                 <th>Current Price</th>
+                 <th>Total Price</th>
+                 <th>Buy Or Sell</th>
+                 <th>Submit</th>
+            </tr>
+        </thead>
+        <tbody>
+       {% for row in data %}
+            <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>${{ "%.2f"|format(row[2]) }}</td>
+                    <td>${{ "%.2f"|format(row[3]) }}</td>
+                    <td><form action="/inter" method="POST"><input type="number" class="form-control" name="shares"></td>
+                    <input type="hidden" name="symbol" value="{{ row[4] }}">
+                    <td><button type="submit" class="btn btn-primary" >Submit</button> </form> </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

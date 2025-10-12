@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+     History
+{% endblock %}
+
+{% block main %}
+<div class="table-responsive">
+    <table class="table table-striped table-hover table-bordered table-sm">
+        <thead class="table-dark">
+            <tr>
+                 <th>Stock Name</th>
+                 <th>Shares</th>
+                 <th>Price At That Time</th>
+                 <th>Type</th>
+                 <th>Date And Time Of Transaction</th>
+            </tr>
+        </thead>
+        <tbody>
+       {% for row in data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>${{ "%.2f"|format(row[2]) }}</td>
+                <td>{{ row[3] }}</td>
+                <td>{{ row[4] }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

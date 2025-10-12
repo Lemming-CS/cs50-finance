@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="POST">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="mb-3">
+            <input class="form-control mx-auto w-auto" id="pass" name="password" placeholder="Password" type="password">
+            <p></p>
+            <input class="form-control mx-auto w-auto" id="conf" name="confirmation" placeholder="Confirm password" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit" id= "butt">Log In</button>
+    </form>
+        <script>
+            confirm = document.querySelector("#conf");
+            password = document.querySelector("#pass");
+            butt = document.querySelector("#butt");
+            confirm.addEventListener("input", function() {
+                if (confirm.value !== password.value)
+                {
+                    butt.disabled = true;
+                }
+                else if (confirm.value == password.value)
+                {
+                    butt.disabled = false;
+                }
+        });
+            password.addEventListener("input", function() {
+                if (confirm.value !== password.value)
+                {
+                    butt.disabled = true;
+                }
+                else if (confirm.value == password.value)
+                {
+                    butt.disabled = false;
+                }
+        });
+        </script>
+{% endblock %}
