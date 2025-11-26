@@ -22,3 +22,10 @@ Live Demo
 ➡️ https://lemming-cs50-finance.onrender.com
 
 Learned Flask routing, SQL queries, session management, API integration, input validation, and deploying a Python app to Render.
+![Login Page](screenshots/login.png)
+![Register Page](screenshots/Register.png)
+![Homepage](screenshots/Homepage.png)
+![Buy Page](screenshots/Buy.png)
+![Transaction History](screenshots/History.png)
+![Sell Page](screenshots/Sell_1.png)
+![Sell Page](screenshots/Sell_2.png)
